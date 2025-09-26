@@ -1,0 +1,152 @@
+{
+  "info": {
+    "name": "Expense Module API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Postman collection for the Laravel Expense Module CRUD APIs."
+  },
+  "item": [
+    {
+      "name": "Health",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/health",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "health"
+          ]
+        }
+      }
+    },
+    {
+      "name": "List Expenses",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/expenses",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "expenses"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Create Expense",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Lunch\",\n  \"amount\": 12.5,\n  \"category\": \"food\",\n  \"expense_date\": \"2025-09-25\",\n  \"notes\": \"Caesar salad\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/expenses",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "expenses"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Show Expense",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/expenses/{{id}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "expenses",
+            "{{id}}"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Update Expense",
+      "request": {
+        "method": "PUT",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Team Lunch\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/expenses/{{id}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "expenses",
+            "{{id}}"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Delete Expense",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/expenses/{{id}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "expenses",
+            "{{id}}"
+          ]
+        }
+      }
+    },
+    {
+      "name": "List Expenses (Filtered)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/expenses?category=food&date_from=2025-09-01&date_to=2025-09-30&per_page=20",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "expenses"
+          ],
+          "query": [
+            { "key": "category", "value": "food" },
+            { "key": "date_from", "value": "2025-09-01" },
+            { "key": "date_to", "value": "2025-09-30" },
+            { "key": "per_page", "value": "20" }
+          ]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080/api"
+    },
+    {
+      "key": "id",
+      "value": "REPLACE-WITH-UUID"
+    }
+  ]
+}
